@@ -12,4 +12,4 @@
 ##### Work with layered architecture.(API-DB-SERVICE-MODELS)
 
 ### Homework -4 
-###### Loading...
+##### Cache operations and API Paging - Sorting - Filtering - Search
