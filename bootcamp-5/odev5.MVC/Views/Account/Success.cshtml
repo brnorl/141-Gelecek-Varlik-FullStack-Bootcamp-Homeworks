@@ -1,0 +1,181 @@
+@using Microsoft.AspNetCore.Http;
+@using odev3.Models.Product
+@using odev3.Models.User
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admin Panel</title>
+</head>
+
+<body>
+
+    <h3 class="text-center">Admin Panel</h3>
+    <h5 class="text-center">Welcome @Context.Session.GetString("username")</h5>
+    <h5 class="text-center"><a asp-controller="account" asp-action="logout">Logout</a></h5>
+    <br>
+
+    <!--Forms-->
+    <div class="container">
+        <div class="row mx-auto">
+            <div class="col-md ">
+                <form class="mx-auto" method="post" asp-controller="account" asp-action="InsertUser">
+                    <table class="mx-auto" border="0" cellpadding="2" cellspacing="2">
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" name="name"></td>
+                        </tr>
+                        <tr>
+                            <td>Surname</td>
+                            <td><input type="text" name="surname"></td>
+                        </tr>
+                        <tr>
+                            <td>E-Mail</td>
+                            <td><input type="email" name="email"></td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td><input type="text" name="password"></td>
+                        </tr>
+                        @ViewBag.info
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><input class="btn btn-primary btn-block" type="submit" value="Create User"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div class="col-md ">
+                <form class="mx-auto" method="post" asp-controller="account" asp-action="InsertProduct">
+                    <table class="mx-auto" border="0" cellpadding="2" cellspacing="2">
+                        <tr>
+                            <td>Name</td>
+                            <td><input type="text" name="name"></td>
+                        </tr>
+                        <tr>
+                            <td>Display Name</td>
+                            <td><input type="text" name="displayName"></td>
+                        </tr>
+                        <tr>
+                            <td>Price</td>
+                            <td><input type="text" name="price"></td>
+                        </tr>
+                        @ViewBag.infoProduct
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><input class="btn btn-primary btn-block" type="submit" value="Create Product"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+        </div>
+        <br>
+        <div class="row mx-auto">
+            <div class="col-md">
+                <form class="mx-auto" method="post" asp-controller="account" asp-action="DeleteUser">
+                    <table class="mx-auto" border="0" cellpadding="2" cellspacing="2">
+                        @ViewBag.isDeleted
+                        <tr>
+                            <td>User ID</td>
+                            <td><input type="number" name="Id"></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><input class="btn btn-danger btn-block" type="submit" value="Delete User"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="col-md">
+                <form class="mx-auto" method="post" asp-controller="account" asp-action="DeleteProduct">
+                    <table class="mx-auto" border="0" cellpadding="2" cellspacing="2">
+                        @ViewBag.isDeleted
+                        <tr>
+                            <td>Product ID</td>
+                            <td><input type="number" name="Id"></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td><input class="btn btn-danger btn-block" type="submit" value="Delete Product"></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--Products and Users Lists-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md">
+                <h4 class="text-center">USERS</h3>
+                    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse"
+                        data-target="#UsersTable" aria-expanded="false" aria-controls="UsersTable">
+                        Toggle Users Table
+                    </button>
+                    <br>
+                    <div class="collapse" id="UsersTable">
+                        <table class="table" border="1">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Surname</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">E-Mail</th>
+                                <th scope="col">Delete Status</th>
+                            </tr>
+                            @foreach (var item in (List<UserViewModel>)ViewBag.userList)
+                            {
+                                <tr>
+                                    <td scope="row">@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Surname</td>
+                                    <td>@item.Password</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.IsDeleted</td>
+                                </tr>
+                            }
+                        </table>
+                    </div>
+            </div>
+            <div class="col-md">
+                <h4 class="text-center">PRODUCTS</h3>
+                    <button class="btn btn-secondary btn-block" type="button" data-toggle="collapse"
+                        data-target="#ProductsTable" aria-expanded="false" aria-controls="ProductsTable">
+                        Toggle Products Table
+                    </button>
+                    <br>
+                    <div class="collapse" id="ProductsTable">
+                        <table class="table" border="1">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Display Name</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Delete Status</th>
+                                <th scope="col">Active Status</th>
+                            </tr>
+                            @foreach (var item in (List<ProductViewModel>)ViewBag.productList)
+                            {
+                                <tr>
+                                    <td scope="row">@item.Id</td>
+                                    <td>@item.DisplayName</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.IsDeleted</td>
+                                    <td>@item.IsActive</td>
+
+                                </tr>
+                            }
+                        </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
