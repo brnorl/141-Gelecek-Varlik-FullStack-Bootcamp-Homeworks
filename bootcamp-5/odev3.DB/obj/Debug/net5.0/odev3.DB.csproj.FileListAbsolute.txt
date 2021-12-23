@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\bootcamp3\odev3.DB\bin\Debug\net5.0\odev3.DB.deps.json
+C:\Users\user\Desktop\bootcamp3\odev3.DB\bin\Debug\net5.0\odev3.DB.dll
+C:\Users\user\Desktop\bootcamp3\odev3.DB\bin\Debug\net5.0\ref\odev3.DB.dll
+C:\Users\user\Desktop\bootcamp3\odev3.DB\bin\Debug\net5.0\odev3.DB.pdb
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\odev3.DB.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\odev3.DB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\odev3.DB.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\odev3.DB.AssemblyInfo.cs
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\odev3.DB.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\odev3.DB.dll
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\ref\odev3.DB.dll
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\odev3.DB.pdb
+C:\Users\user\Desktop\bootcamp3\odev3.DB\bin\Debug\net5.0\odev3.DB.runtimeconfig.json
+C:\Users\user\Desktop\bootcamp3\odev3.DB\bin\Debug\net5.0\odev3.DB.runtimeconfig.dev.json
+C:\Users\user\Desktop\bootcamp3\odev3.DB\obj\Debug\net5.0\odev3.DB.genruntimeconfig.cache
